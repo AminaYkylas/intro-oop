@@ -1,33 +1,35 @@
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Human p1 = new Human(30, "Ali", true);
+        Scanner scanner = new Scanner(System.in);
 
-        // 2. Создаем Employee (все данные в коде, не через Scanner)
-        Employee w1 = new Employee(25, "Sabok", false, "Manager", 50000);
+        System.out.print("Enter employee name: ");
+        String empName = scanner.nextLine();
+        System.out.print("Enter employee age: ");
+        int empAge = scanner.nextInt();
+        System.out.print("Enter employee gender (true=male, false=female): ");
+        boolean empGender = scanner.nextBoolean();
+        scanner.nextLine();
+        System.out.print("Enter employee position: ");
+        String empPosition = scanner.nextLine();
+        System.out.print("Enter employee salary: ");
+        float empSalary = scanner.nextFloat();
+        scanner.nextLine();
 
-        // 3. Создаем Student
-        Student s1 = new Student(20, "Dana", true, "Media", 3.8f);
+        Employee employee = new Employee(empAge, empName, empGender, empPosition, empSalary);
 
-        System.out.println("Person: " + p1.getName() + ", " + p1.getAge());
-        System.out.println("Employee: " + w1.getJob() + ", " + w1.getMoney());
-        System.out.println("Student: " + s1.getStudy() + ", " + s1.getScore());
+        Human human = new Human(30, "Alimok", true);
+        Student student = new Student(20, "Sabok", false, "Computer Science", 3.8f);
 
-        w1.setMoney(w1.getMoney() + 10000);
-        s1.setScore(s1.getScore() + 0.5f);
 
-        System.out.println("New salary: " + w1.getMoney());
-        System.out.println("New score: " + s1.getScore());
+        System.out.println("Employee salary: " + employee.getMoney());
+        System.out.println("Student score: " + student.getScore());
 
-        p1.show();
-        System.out.println("Type: " + p1.getType());
+        employee.setMoney(employee.getMoney() + 1000);
+        student.setScore(student.getScore() + 0.5f);
 
-        w1.show();
-        System.out.println("Type: " + w1.getType());
+        System.out.println("New salary: " + employee.getMoney());
+        System.out.println("New score: " + student.getScore());
+        
 
-        s1.show();
-        System.out.println("Type: " + s1.getType());
-
-        System.out.println("Total employees: " + Employee.count);
-
-    }
-}
+        human.show();

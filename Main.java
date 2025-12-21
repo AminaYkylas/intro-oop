@@ -30,6 +30,21 @@ public class Main {
 
         System.out.println("New salary: " + employee.getMoney());
         System.out.println("New score: " + student.getScore());
-        
+
 
         human.show();
+        System.out.println("Type: " + human.getType());
+
+        employee.show();
+        System.out.println("Type: " + employee.getType());
+
+        student.show();
+        System.out.println("Type: " + student.getType());
+
+        // Static field
+        System.out.println("Total employees: " + Employee.count);
+
+        scanner.close();
+
+    }
+}

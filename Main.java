@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner=new Scanner(System.in);
 
         System.out.print("Enter employee name: ");
         String empName = scanner.nextLine();
@@ -16,35 +16,41 @@ public class Main {
         float empSalary = scanner.nextFloat();
         scanner.nextLine();
 
-        Employee employee = new Employee(empAge, empName, empGender, empPosition, empSalary);
+        Employee emp = new Employee(empAge, empName, empGender, empPosition, empSalary);
+        Student stu = new Student(18, "Amina", false, "MT", 3.0f);
 
-        Human human = new Human(30, "Alimok", true);
-        Student student = new Student(20, "Sabok", false, "Computer Science", 3.8f);
+        Human h = stu;
+        Student s = stu;
+        IStudy i = stu;
+        IWork w = emp;
 
+        System.out.println("Human methods");
+        h.show();
+        h.introduce();
 
-        System.out.println("Employee salary: " + employee.getMoney());
-        System.out.println("Student score: " + student.getScore());
+        System.out.println("Student methods");
+        s.show();
+        s.introduce();
+        s.learn();
+        s.exam();
+        s.showId();
 
-        employee.setMoney(employee.getMoney() + 1000);
-        student.setScore(student.getScore() + 0.5f);
+        System.out.println("Employee methods");
+        emp.show();
+        emp.introduce();
+        emp.learn();
+        emp.exam();
+        emp.doWork();
+        emp.receiveSalary();
 
-        System.out.println("New salary: " + employee.getMoney());
-        System.out.println("New score: " + student.getScore());
+        System.out.println("Interface methods");
+        i.learn();
+        w.doWork();
 
+        System.out.println("Old salary: " + emp.getSalary());
+        emp.setSalary(emp.getSalary() + 52000);
+        System.out.println("New salary: " + emp.getSalary());
 
-        human.show();
-        System.out.println("Type: " + human.getType());
-
-        employee.show();
-        System.out.println("Type: " + employee.getType());
-
-        student.show();
-        System.out.println("Type: " + student.getType());
-
-        // Static field
         System.out.println("Total employees: " + Employee.count);
-
-        scanner.close();
-
     }
 }
